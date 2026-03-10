@@ -34,7 +34,7 @@ function createItem(item) {
   const textElement = clone.querySelector('.to-do__item-text')
   const deleteButton = clone.querySelector('.to-do__item-button_type_delete')
   const duplicateButton = clone.querySelector(
-    '.to-do__item-button_type_duplicate'
+    '.to-do__item-button_type_duplicate',
   )
   const editButton = clone.querySelector('.to-do__item-button_type_edit')
 
@@ -91,7 +91,7 @@ formElement.addEventListener('submit', (e) => {
   const task = inputElement.value.trim()
   if (task) {
     const newItem = createItem(task)
-    listElement.appendChild(newItem)
+    listElement.prepend(newItem)
     inputElement.value = ''
     const items = getTasksFromDOM()
     saveTasks(items)
